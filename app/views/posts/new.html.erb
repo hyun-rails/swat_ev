@@ -1,0 +1,23 @@
+<% provide(:title, 'Wrtie new post') %>
+<h1>Create posts</h1>
+
+<%= form_for(@post) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+      
+  <%= f.label :department, "Department" %>
+  <%= f.text_field :department %>
+
+  <%= f.label :professor, "Professor" %>
+  <%= f.text_field :professor %>
+
+  <%= f.label :course, "Course" %>
+  <%= f.text_field :course %>
+
+  <%= f.label :title, "Title" %>
+  <%= f.text_field :title %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
+  </div>
+  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+<% end %>
+

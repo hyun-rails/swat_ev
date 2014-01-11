@@ -5,12 +5,15 @@ class UsersController < ApplicationController
 
   helper_method :admin_user2?
 
+  before_action :signed_in_user_filter, only: [:new, :create]
+
   def index
     @users = User.paginate(page: params[:page])
   end
 
   def show
     @user = User.find(params[:id])
+    @posts = @user.posts.paginate(page: params[:page])
   end
 
   def new
@@ -63,13 +66,6 @@ class UsersController < ApplicationController
 
     # Before filters
 
-    def signed_in_user
-      unless signed_in?
-        store_location
-        redirect_to signin_url, notice: "Please sign in."
-      end
-    end
-
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user?(@user)
@@ -77,6 +73,15 @@ class UsersController < ApplicationController
 
     def admin_user
       redirect_to(root_url) unless current_user.admin?
+    end
+
+    # Signed in users have no reason to access the new and 
+    # create actions. Signed in users will be redirected to
+    # the root URL if they do try to hit those pages
+    def signed_in_user_filter
+      if signed_in?
+        redirect_to root_path, notice: "Already logged in"
+      end
     end
 
 end

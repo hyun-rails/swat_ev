@@ -1,0 +1,12 @@
+<% provide(:title, 'All posts') %>
+<h1>All posts</h1>
+
+<p><%= link_to "Write new post", new_post_path %></p>  
+
+<%= will_paginate %>
+<h3>Posts (<%= @posts.count %>)</h3>
+<ul class="posts">
+  <%= render @posts %>
+</ul>
+
+<%= will_paginate %>

@@ -1,0 +1,12 @@
+<% provide(:title, 'Post') %>
+    
+<div class="post">  
+  <span class="left"><%= @post.user.name %><br /><%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?"}%></span>  
+  <span class="right"><%= @post.content %></span>  
+</div>  
+
+  
+<p>  
+  <%= link_to "Edit", '#' %>  
+  <%= link_to "View All", posts_path %>  
+</p>  

@@ -1,0 +1,10 @@
+<li>
+  <span class="department"><%= post.department %></span>
+  <span class="professor"><%= post.professor %></span>
+  <span class="course"><%= post.course %></span>
+  <span class="title"><%= link_to post.title, post%></span>
+  <span class="content"><%= post.content %></span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(post.created_at) %> ago.
+  </span>
+</li>

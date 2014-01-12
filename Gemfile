@@ -6,6 +6,7 @@ gem 'rails', '4.0.1'
 gem 'pg', '0.15.1'
 gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt-ruby', '3.1.2'
+gem "simple_form"
 gem 'faker', '1.1.2' # allow us to make sample users
 gem 'will_paginate', '3.0.4' # pagination method
 gem 'bootstrap-will_paginate', '0.0.9' # configures will_paginate to use Bootstrap's style

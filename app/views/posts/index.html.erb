@@ -1,12 +1,20 @@
 <% provide(:title, 'All posts') %>
 <h1>All posts</h1>
 
-<p><%= link_to "Write new post", new_post_path %></p>  
+<p><%= link_to "Write new post", new_post_path %>  
 
-<%= will_paginate %>
+<p>
+	DEPARTMENTS = ['Economics', 'Computer Science', 'Music']
+	select(:department, DEPARTMENTS)
+	<%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name=> nil %> 
+  </p>
+
+
+<p>
+<%= will_paginate @posts%>
 <h3>Posts (<%= @posts.count %>)</h3>
 <ul class="posts">
   <%= render @posts %>
 </ul>
-
-<%= will_paginate %>
+<%= will_paginate @posts%>

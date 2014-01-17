@@ -10,6 +10,18 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  def initial_filter
+    if !signed_in?
+      render 'static_pages/home'
+    end
+  end
+
+  def signed_in_user_filter
+      if signed_in?
+        redirect_to root_path, notice: "Already logged in"
+      end
+  end
+
   def signed_in_user
     unless signed_in?
       store_location

@@ -5,7 +5,7 @@
   <%= render 'shared/error_messages', object: f.object %>
       
   <%= f.label :department, "Department" %>
-  <%= f.text_field :department %>
+  <%= f.select(:department, [["Experience", "Experience"], ["Beginner","Beginner"]]) %>
 
   <%= f.label :professor, "Professor" %>
   <%= f.text_field :professor %>
@@ -13,11 +13,24 @@
   <%= f.label :course, "Course" %>
   <%= f.text_field :course %>
 
+  <%= f.label :difficulty, "Difficulty" %>
+  <%= f.select(:difficulty, [["Very difficult", "Very difficult"], ["Difficult", "Difficult"], 
+                             ["Average", "Average"], ["Easy","Easy"], ["Very easy","Very easy"]]) %>
+
+  <%= f.label :accessibility, "accessibility" %>
+  <%= f.select(:accessibility, [["Very accessible", "Very accessible"], ["Accessible", "Accessible"], 
+                             ["Average", "Average"], ["Mostly unavailable","Mostly available"], ["Never accessible","Never accessible"]]) %>
+
+  <%= f.label :lecturequality, "Lecture Quality" %>
+  <%= f.select(:lecturequality, [["Excellent", "Excellent"], ["Good", "Good"], 
+                             ["Average", "Average"], ["Bad","Bad"], ["Very Bad","Very bad"]]) %>
+
   <%= f.label :title, "Title" %>
   <%= f.text_field :title %>
-  <div class="field">
-    <%= f.text_area :content, placeholder: "Compose new micropost..." %>
-  </div>
+
+  <%= f.label :content, "Content" %>
+  <%= f.text_area :content, placeholder: "Write what you feel about the course..." %>
+  
   <%= f.submit "Post", class: "btn btn-large btn-primary" %>
 <% end %>
 

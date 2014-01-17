@@ -1,12 +1,26 @@
 <% provide(:title, 'Post') %>
-    
-<div class="post">  
-  <span class="left"><%= @post.user.name %><br /><%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?"}%></span>  
-  <span class="right"><%= @post.content %></span>  
-</div>  
+<div class="span8">
+	<h3>Posts</h3>
+	<div class="post">  
+		<span class="left"><%= @post.user.name %><br /><%= link_to "Delete", @post, method: :delete, data: { confirm: "You sure?"}%></span>  
 
-  
+		<li>
+			<span class="department"><%= @post.department %></span>
+			<span class="professor"><%= @post.professor %></span>
+			<span class="course"><%= @post.course %></span>
+			<span class="difficulty"><%= @post.difficulty %></span>
+			<span class="accessibility"><%= @post.accessibility %></span>
+			<span class="lecturequality"><%= @post.lecturequality %></span>
+			<span class="title"><%= @post.title%></span>
+			<span class="content"><%= @post.content %></span>
+			<span class="timestamp">
+				Posted <%= @post.created_at %>
+			</span>
+		</li>
+	</div>  
+</div>
+
 <p>  
-  <%= link_to "Edit", '#' %>  
-  <%= link_to "View All", posts_path %>  
+	<%= link_to "Edit", '#' %>  
+	<%= link_to "View All", posts_path %>  
 </p>  

@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
-  before_action :signed_in_user
+  before_action :initial_filter, only: [:index]
+  before_action :signed_in_user, only: [:new, :show, :edit, :update, :destroy]
 
   def new
     @post = Post.new
@@ -20,9 +21,7 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.search(params[:search], params[:page])
-  	#@posts = @posts_search.paginate(page: params[:page])
-    #@posts = Post.paginate(page: params[:page])
+    @posts = Post.all
   end
 
   def show
@@ -33,6 +32,6 @@ class PostsController < ApplicationController
 
     def post_params
       params.require(:post).permit(:department, :professor, :course,
-                                   :title, :content)
+                                   :title, :content, :difficulty, :accessibility, :lecturequality)
     end
 end

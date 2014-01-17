@@ -2,7 +2,7 @@ SwatEv::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :posts, only: [:index, :show, :new, :create, :destroy]
-  devise_for :users, controllers: { confirmations: 'confirmations'}
+  devise_for :users, controllers: { confirmation: 'confirmation'}
   root 'posts#index'
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'

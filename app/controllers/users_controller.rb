@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:index, :edit, :update, :destroy]
+  before_action :signed_in_user, only: [:index, :edit, :update, :destroy, :show]
   before_action :correct_user,   only: [:edit, :update]
   before_action :admin_user,     only: [:destroy, :index]
 
@@ -12,8 +12,20 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
-    @posts = @user.posts.paginate(page: params[:page])
+    if params[:id] == "confirmation"
+      self.resource = User.confirm_by_token(params[:confirmation_token])
+      yield resource if block_given?
+
+      if resource.errors.empty?
+        set_flash_message(:notice, :confirmed) if is_flashing_format?
+        respond_with_navigational(resource){ redirect_to after_confirmation_path_for(resource_name, resource) }
+      else
+        respond_with_navigational(resource.errors, :status => :unprocessable_entity){ render :new }
+      end
+    elsif
+      @user = User.find(params[:id])
+      @posts = @user.posts.paginate(page: params[:page])
+    end
   end
 
   def new
@@ -23,9 +35,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)  
     if @user.save
-      sign_in @user
+      #sign_in @user
       flash[:success] = "Welcome to Swarthmore Course Evaluation!"
-      redirect_to @user
+      #redirect_to @user
+      redirect_to(root_url)
     else
       render 'new'
     end

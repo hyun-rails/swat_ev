@@ -75,6 +75,20 @@ p {
   }
 }
 
+p.swat_logo {
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  
+}
+
+/* Home page body */
+
+.hero-unit {
+  background: asset_url('outdoor_classroom.jpg');
+  background-size: 100% auto;
+}
+
 /* footer */
 
 footer {
@@ -214,6 +228,13 @@ div.dataTables_info {
 div.dataTables_paginate {
   float: right;
   margin: 0;
+}
+
+.tdfield {
+  width: 160px;
+  overflow: hidden; /* this is what fixes the expansion */
+  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
+  white-space: nowrap;
 }
 
 table.table {
@@ -371,3 +392,6 @@ div.DTFC_LeftBodyWrapper tbody tr:first-child td {
 div.DTFC_LeftFootWrapper table {
   border-top: none;
 }
+
+
+

@@ -10,7 +10,7 @@ gem "simple_form"
 gem 'faker', '1.1.2' # allow us to make sample users
 gem 'will_paginate', '3.0.4' # pagination method
 gem 'bootstrap-will_paginate', '0.0.9' # configures will_paginate to use Bootstrap's style
-gem 'devise'
+
 
 group :development, :test do
   gem 'sqlite3', '1.3.8'

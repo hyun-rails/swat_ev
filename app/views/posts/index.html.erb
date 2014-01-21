@@ -108,6 +108,7 @@ $(document).ready(function() {
   $('#posts').dataTable( {
     "sDom": "<'row'<'span6'l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
     "sPaginationType": "bootstrap",
+    
     "oLanguage": {
       "sLengthMenu": "_MENU_ records per page"
     } 
@@ -122,7 +123,7 @@ $(document).ready(function() {
     <th>Department</th>
     <th>Professor</th>
     <th>Course</th>
-    <th>Title</th>
+    <th>Content</th>
   </tr>
 </thead>
 <tbody>
@@ -131,7 +132,7 @@ $(document).ready(function() {
   <td><%= post.department %></td>
   <td><%= post.professor %></td>
   <td><%= post.course %></td>
-  <td><%= link_to post.title, post%></td>
+  <td><div class="tdfield"><%= link_to post.content, post%></div></td>
 </tr>
 <% end %>
 </tbody>

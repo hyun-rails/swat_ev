@@ -23,6 +23,9 @@ module SessionsHelper
   end
 
   def signed_in_user
+    # Please confirm your ID by clicking the email link
+    # redirct_to confirmation_instruction_path
+    # Include resend confirmation maybe?
     unless signed_in?
       store_location
       redirect_to signin_url, notice: "Please sign in."

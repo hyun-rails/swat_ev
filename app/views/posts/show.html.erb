@@ -9,7 +9,7 @@
 	Difficulty: <%= @post.difficulty %><br/></span>
 	Accessibility: <%= @post.accessibility %><br/></span>
 	Lecture Quality: <%= @post.lecturequality %><br/></span>
-	Comment: <%= @post.content %><br/></span>
+	Comment: <%= simple_format word_wrap(@post.content)%><br/></span>
 	Posted: <%= @post.created_at %>
 </div>  
 <p>  

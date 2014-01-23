@@ -5,19 +5,43 @@
   <%= render 'shared/error_messages', object: f.object %>
       
   <%= f.label :department, "Department" %>
-  <%= f.select(:department, [["Experience", "Experience"], ["Beginner","Beginner"]]) %>
+  <%= f.select(:department, [ ["Ancient History", "Ancient History"], ["Anthropology","Anthropology"], 
+      ["Arabic" , "Arabic" ], [ "Art" , "Art" ],
+      [ "Art History" , "Art History" ], [ "Asian Studies" , "Asian Studies" ],
+      [ "Astronomy" , "Astronomy" ], [ "Biochemistry" , "Biochemistry" ],
+      [ "Biology" , "Biology" ], [ "Black Studies" , "Black Studies" ],
+      [ "Chemistry" , "Chemistry" ], [ "Chinese" , "Chinese" ],
+      [ "Classics" , "Classics" ], [ "Cognitive Science" , "Cognitive Science" ],
+      [ "Comparative Literature" , "Comparative Literature" ], [ "Computer Science" , "Computer Science" ],
+      [ "Dance" , "Dance" ], [ "Economics" , "Economics" ],
+      [ "Educational Studies" , "Educational Studies" ], [ "Engineering" , "Engineering" ],
+      [ "English Literature" , "English Literature" ], [ "Environmental Studies" , "Environmental Studies" ],
+      [ "Film & Media Studies" , "Film & Media Studies" ], [ "French & Francophone Studies" , "French & Francophone Studies" ],
+      [ "Gender & Sexuality Studies" , "Gender & Sexuality Studies" ], [ "German Studies" , "German Studies" ],
+      [ "Greek" , "Greek" ], [ "History" , "History" ],
+      [ "Interpretation Theory" , "Interpretation Theory" ], [ "Islamic Studies" , "Islamic Studies" ],
+      [ "Japanese" , "Japanese" ], [ "Latin" , "Latin" ],
+      [ "Latin American Studies" , "Latin American Studies" ], [ "Linguistics" , "Linguistics" ],
+      [ "Math and Stats" , "Math and Stats" ], [ "Medieval Studies" , "Medieval Studies" ],
+      [ "Modern Languages & Literatures" , "Modern Languages & Literatures" ], [ "Music" , "Music" ],
+      [ "Peace & Conflict Studies" , "Peace & Conflict Studies" ], [ "Philosophy" , "Philosophy" ],
+      [ "Physics" , "Physics" ], [ "Political Science" , "Political Science" ],
+      [ "Psychology" , "Psychology" ], [ "Public Policy" , "Public Policy" ],
+      [ "Religion" , "Religion" ], [ "Russian" , "Russian" ],
+      [ "Sociology" , "Sociology" ], [ "Spanish" , "Spanish" ],
+      [ "Statistics" , "Statistics" ], [ "Theater" , "Theater" ], ["Other", "Other"] ]) %>
 
   <%= f.label :professor, "Professor" %>
-  <%= f.text_field :professor %>
+  <%= f.text_field :professor%>
 
   <%= f.label :course, "Course" %>
-  <%= f.text_field :course %>
+  <%= f.text_field :course, placeholder: "Please use the format 'Econ 021 Intermediate Macroeconomics' " %>
 
   <%= f.label :difficulty, "Difficulty" %>
   <%= f.select(:difficulty, [["Very difficult", "Very difficult"], ["Difficult", "Difficult"], 
                              ["Average", "Average"], ["Easy","Easy"], ["Very easy","Very easy"]]) %>
 
-  <%= f.label :accessibility, "accessibility" %>
+  <%= f.label :accessibility, "Accessibility" %>
   <%= f.select(:accessibility, [["Very accessible", "Very accessible"], ["Accessible", "Accessible"], 
                              ["Average", "Average"], ["Mostly unavailable","Mostly available"], ["Never accessible","Never accessible"]]) %>
 
